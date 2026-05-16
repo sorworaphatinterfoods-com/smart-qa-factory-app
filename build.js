@@ -1,0 +1,10 @@
+import { statSync, mkdirSync, copyFileSync, rmSync, readdirSync } from 'node:fs';
+import { join } from 'node:path';
+const root = new URL('..', import.meta.url).pathname;
+const dist = join(root, 'dist');
+rmSync(dist, { recursive: true, force: true });
+mkdirSync(dist, { recursive: true });
+for (const f of readdirSync(join(root, 'public'))) copyFileSync(join(root, 'public', f), join(dist, f));
+statSync(join(root, 'src/worker.js'));
+statSync(join(root, 'sql/schema.sql'));
+console.log('Build OK: public assets copied to dist; worker/schema verified.');

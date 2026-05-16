@@ -1,0 +1,67 @@
+QA_Master_DATA.xlsx -> SQLite / Cloudflare D1 Report
+============================================================
+Generated: 2026-05-16 21:40:49
+Sheets found: 14
+
+1. supplier_master -> table: supplier_master
+   Rows: 34 | Columns: 31
+   Fields: supplier_id:TEXT, supplier_name:TEXT, material_type:TEXT, risk_level:TEXT, coarequired:TEXT, halalcert:TEXT, gmpstatus:TEXT, approved_status:TEXT, lastauditdate:TEXT, material_code:TEXT, column_11:TEXT, column_12:TEXT, column_13:TEXT, column_14:TEXT, column_15:TEXT, column_16:TEXT, column_17:TEXT, column_18:TEXT, column_19:TEXT, column_20:TEXT, column_21:TEXT, column_22:TEXT, column_23:TEXT, column_24:TEXT, column_25:TEXT, column_26:TEXT, column_27:TEXT, column_28:TEXT, column_29:TEXT, column_30:TEXT, column_31:TEXT
+
+2. material_master -> table: material_master
+   Rows: 109 | Columns: 10
+   Fields: material_code:TEXT, material_name:TEXT, material_type:TEXT, category:TEXT, unit:TEXT, min_temp_c:INTEGER, max_temp_c:INTEGER, shelf_life_days:INTEGER, risk_level:TEXT, supplier_id:TEXT
+
+3. สำเนาของ material_master -> table: สำเนาของ_material_master
+   Rows: 109 | Columns: 10
+   Fields: material_code:TEXT, material_name:TEXT, material_type:TEXT, category:TEXT, unit:TEXT, min_temp_c:INTEGER, max_temp_c:INTEGER, shelf_life_days:INTEGER, risk_level:TEXT, supplier_id:TEXT
+
+4. ingredient_master -> table: ingredient_master
+   Rows: 38 | Columns: 7
+   Fields: material_code:TEXT, material_name:TEXT, material_type:TEXT, category:TEXT, unit:TEXT, storage_temp:TEXT, risk_level:TEXT
+
+5. packaging_master -> table: packaging_master
+   Rows: 60 | Columns: 4
+   Fields: material_code:TEXT, material_name:TEXT, unit:TEXT, risk_level:TEXT
+
+6. chemical_master -> table: chemical_master
+   Rows: 6 | Columns: 4
+   Fields: material_code:TEXT, material_name:TEXT, unit:TEXT, risk_level:TEXT
+
+7. finished_goods_master -> table: finished_goods_master
+   Rows: 32 | Columns: 9
+   Fields: fg_code:TEXT, fg_name:TEXT, product_type:TEXT, storage_temp_c:TEXT, shelf_life_days:INTEGER, min_weight_g:INTEGER, max_weight_g:INTEGER, min_weight_g_pack:INTEGER, max_weight_g_pack:INTEGER
+
+8. process_master -> table: process_master
+   Rows: 21 | Columns: 4
+   Fields: process_id:TEXT, process_name:TEXT, รายละเอ_ยด:TEXT, พ_นท_ปฏ_บ_ต_งาน:TEXT
+
+9. parameter_master -> table: parameter_master
+   Rows: 28 | Columns: 6
+   Fields: parameter_id:TEXT, parameter:TEXT, parameter_2:TEXT, parameter_category:TEXT, spec:TEXT, หน_วย:TEXT
+
+10. Equipment_master -> table: equipment_master
+   Rows: 33 | Columns: 4
+   Fields: equipment_id:TEXT, equipment_name:TEXT, equipment_type:TEXT, การนำไปใช_งาน_ว_ดอะไร:TEXT
+
+11. ccp_master -> table: ccp_master
+   Rows: 7 | Columns: 4
+   Fields: ccp_id:TEXT, process_id:TEXT, ccp_name:TEXT, critical_limit:TEXT
+
+12. process_parameter_map -> table: process_parameter_map
+   Rows: 3 | Columns: 4
+   Fields: process_id:TEXT, process_name:TEXT, parameter_id:TEXT, equipment_id:TEXT
+
+13. machine_master -> table: machine_master
+   Rows: 7 | Columns: 4
+   Fields: machine_id:TEXT, machine_name:TEXT, process_id:TEXT, machine_type:TEXT
+
+- SKIP no data rows: inspection_record
+============================================================
+Tables created: 13
+Total rows inserted: 487
+SQLite integrity_check: ok
+
+Cloudflare D1 import commands:
+1) Create database: wrangler d1 create qa-master-data
+2) Import SQL: wrangler d1 execute qa-master-data --file=QA_Master_DATA_D1.sql
+3) Check tables: wrangler d1 execute qa-master-data --command="SELECT name FROM sqlite_master WHERE type='table';"

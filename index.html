@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart QA Factory System</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Smart QA Factory System</h1>
+      <p>GHPs • HACCP Codex • Meat Processing QA Platform</p>
+    </div>
+    <span id="status">Loading...</span>
+  </header>
+
+  <main>
+    <section class="cards" id="kpiCards"></section>
+
+    <section class="panel">
+      <h2>Core Modules</h2>
+      <div class="modules" id="modules"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Quick Inspection Log</h2>
+      <form id="inspectionForm">
+        <input name="log_id" placeholder="Log ID เช่น QA-20260516-001" required />
+        <input name="record_date" type="date" required />
+        <input name="shift" placeholder="Shift" />
+        <input name="line" placeholder="Line" />
+        <input name="product_code" placeholder="Product Code" />
+        <input name="lot_no" placeholder="Lot No." />
+        <input name="process_code" placeholder="Process Code" />
+        <input name="parameter_code" placeholder="Parameter Code" />
+        <input name="value_text" placeholder="Value Text" />
+        <input name="value_num" type="number" step="0.01" placeholder="Value Num" />
+        <select name="result"><option>PASS</option><option>FAIL</option><option>HOLD</option></select>
+        <input name="inspector" placeholder="Inspector" />
+        <button type="submit">Save Inspection</button>
+      </form>
+      <pre id="formResult"></pre>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

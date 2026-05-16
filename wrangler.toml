@@ -1,0 +1,16 @@
+name = "smart-qa-factory-app"
+main = "src/worker.js"
+compatibility_date = "2026-05-16"
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "smartqa_prod"
+database_id = "REPLACE_WITH_CLOUDFLARE_D1_DATABASE_ID"
+
+[[r2_buckets]]
+binding = "DOC_BUCKET"
+bucket_name = "smartqa-documents"
