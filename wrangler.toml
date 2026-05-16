@@ -9,7 +9,11 @@ binding = "ASSETS"
 [[d1_databases]]
 binding = "DB"
 database_name = "smartqa_prod"
-database_id = "REPLACE_WITH_CLOUDFLARE_D1_DATABASE_ID"
+database_id = ""d1_databases": [{
+    "binding": "DB",
+    "database_name": "smartqa_prod",
+    "database_id": "9ebce5cc-ad72-46cb-b63e-8d61e11f510f"
+ }]"
 
 [[r2_buckets]]
 binding = "DOC_BUCKET"
