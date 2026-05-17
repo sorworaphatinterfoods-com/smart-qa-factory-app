@@ -1,0 +1,42 @@
+smart-qa-system/
+│
+├── frontend/
+│   ├── index.html
+│   ├── style.css
+│   ├── app.js
+│   └── assets/
+│
+├── worker/
+│   ├── src/
+│   │   ├── index.ts
+│   │   ├── routes/
+│   │   │   ├── dashboard.ts
+│   │   │   ├── inspection.ts
+│   │   │   ├── ccp.ts
+│   │   │   ├── metal.ts
+│   │   │   ├── fg-release.ts
+│   │   │   ├── ncr.ts
+│   │   │   ├── capa.ts
+│   │   │   ├── complaint.ts
+│   │   │   ├── traceability.ts
+│   │   │   └── documents.ts
+│   │   ├── services/
+│   │   │   ├── qa-rules.ts
+│   │   │   ├── ncr-service.ts
+│   │   │   ├── capa-service.ts
+│   │   │   ├── release-rule.ts
+│   │   │   └── trace-service.ts
+│   │   └── utils/
+│   │
+├── database/
+│   ├── schema.sql
+│   ├── seed.sql
+│   └── migration/
+│
+├── docs/
+│   ├── api.md
+│   ├── deployment.md
+│   └── user-manual.md
+│
+├── wrangler.toml
+└── package.json
